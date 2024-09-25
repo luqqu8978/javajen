@@ -13,8 +13,12 @@ pipeline {
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
+                     sh 'junit-viewer --results=target/surefire-reports --save=file_location.html'
+                   
                 }
             }
+
+            
         }
         stage('Deliver') {
             steps {
